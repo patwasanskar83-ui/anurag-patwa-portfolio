@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#172b3a" />
+  <meta name="description" content="The professional portfolio of Mr. Anurag Patwa, a primary school educator with nearly 15 years of teaching experience." />
+  <title>Mr. Anurag Patwa | Primary School Educator</title>
+  <style>
+    :root {
+      --navy: #172b3a;
+      --navy-soft: #233d4e;
+      --cream: #f7f4ec;
+      --paper: #fffdf8;
+      --gold: #c59a54;
+      --gold-pale: #ead9b9;
+      --ink: #253440;
+      --muted: #68747b;
+      --line: #e8e1d4;
+      --white: #ffffff;
+      --shadow: 0 18px 45px rgba(23, 43, 58, .10);
+      --radius: 22px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--cream);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    .topbar {
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(247, 244, 236, .92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(232, 225, 212, .85);
+    }
+    .nav-wrap {
+      max-width: 1160px; margin: auto; padding: 14px 24px;
+      display: flex; align-items: center; justify-content: space-between; gap: 20px;
+    }
+    .brand { display: flex; align-items: center; gap: 11px; font-weight: 750; color: var(--navy); letter-spacing: -.02em; }
+    .brand-mark {
+      width: 39px; height: 39px; border-radius: 13px; display: grid; place-items: center;
+      background: var(--navy); color: var(--gold-pale); font-family: Georgia, serif; font-size: 19px;
+    }
+    .nav-links { display: flex; align-items: center; gap: 26px; color: #51616b; font-size: 13px; font-weight: 650; }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta { background: var(--navy); color: var(--white) !important; padding: 10px 16px; border-radius: 999px; }
+    .menu-btn { display: none; border: 0; background: transparent; color: var(--navy); padding: 6px; cursor: pointer; }
+    .hero {
+      overflow: hidden; position: relative; color: var(--white); background: var(--navy);
+      min-height: 610px; display: flex; align-items: center;
+    }
+    .hero::before, .hero::after { content: ""; position: absolute; border: 1px solid rgba(234,217,185,.17); border-radius: 50%; pointer-events: none; }
+    .hero::before { width: 620px; height: 620px; right: -180px; top: -170px; }
+    .hero::after { width: 440px; height: 440px; right: -90px; top: -80px; }
+    .hero-inner {
+      width: 100%; max-width: 1160px; margin: auto; padding: 82px 24px 96px;
+      display: grid; grid-template-columns: 1.15fr .85fr; align-items: center; gap: 60px; position: relative; z-index: 1;
+    }
+    .eyebrow { color: var(--gold-pale); text-transform: uppercase; letter-spacing: .19em; font-size: 11px; font-weight: 750; display: inline-flex; align-items: center; gap: 10px; }
+    .eyebrow::before { content: ""; width: 30px; height: 1px; background: var(--gold); }
+    h1 { margin: 20px 0 10px; font: 500 clamp(43px, 6vw, 72px)/1.04 Georgia, "Times New Roman", serif; letter-spacing: -.045em; }
+    h1 span { color: var(--gold-pale); }
+    .hero-role { color: #d5dfe3; font-size: 15px; letter-spacing: .12em; text-transform: uppercase; font-weight: 650; }
+    .hero-copy { max-width: 570px; margin: 25px 0 30px; color: #d5dfe3; font-size: 17px; line-height: 1.85; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; border-radius: 999px; padding: 13px 19px; font-size: 13px; font-weight: 750; transition: transform .2s, background .2s; cursor: pointer; border: 1px solid transparent; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-gold { color: var(--navy); background: var(--gold-pale); }
+    .btn-outline { border-color: rgba(255,255,255,.35); color: var(--white); background: transparent; }
+    .portrait-wrap { justify-self: center; position: relative; width: min(100%, 365px); }
+    .portrait-frame {
+      aspect-ratio: 4 / 4.65; border: 1px solid rgba(234,217,185,.45); border-radius: 190px 190px 24px 24px;
+      background: linear-gradient(145deg, #314b5a, #203746 62%, #182d3a); display: flex; flex-direction: column;
+      align-items: center; justify-content: center; text-align: center; padding: 25px; box-shadow: 0 30px 70px rgba(0,0,0,.22); position: relative;
+    }
+    .portrait-frame::before { content: ""; position: absolute; inset: 13px; border: 1px solid rgba(234,217,185,.2); border-radius: 180px 180px 16px 16px; }
+    .monogram { width: 132px; height: 132px; border-radius: 50%; background: var(--gold-pale); color: var(--navy); display: grid; place-items: center; font: 500 54px Georgia, serif; margin-bottom: 22px; box-shadow: 0 10px 35px rgba(0,0,0,.15); }
+    .portrait-note { position: relative; z-index: 1; max-width: 215px; color: #d9e1e4; font-size: 12px; }
+    .portrait-note strong { display: block; color: var(--gold-pale); font-size: 14px; margin-bottom: 5px; }
+    .experience-tag { position: absolute; right: -24px; bottom: 48px; background: var(--paper); color: var(--navy); padding: 16px 20px; border-radius: 15px; box-shadow: var(--shadow); }
+    .experience-tag b { display: block; font: 500 31px/1 Georgia, serif; color: var(--navy); }
+    .experience-tag small { color: var(--muted); font-size: 10px; text-transform: uppercase; letter-spacing: .1em; font-weight: 750; }
+    .stats { max-width: 1060px; margin: -42px auto 0; padding: 0 24px; position: relative; z-index: 3; }
+    .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); background: var(--paper); border: 1px solid var(--line); box-shadow: var(--shadow); border-radius: 18px; overflow: hidden; }
+    .stat { padding: 25px 28px; display: flex; align-items: center; gap: 15px; }
+    .stat + .stat { border-left: 1px solid var(--line); }
+    .stat-icon { height: 42px; width: 42px; flex: 0 0 42px; border-radius: 13px; display: grid; place-items: center; color: var(--navy); background: #f0e8d8; }
+    .stat-icon svg { width: 20px; height: 20px; }
+    .stat b { display: block; color: var(--navy); font-size: 15px; }
+    .stat small { color: var(--muted); font-size: 11px; }
+    section { scroll-margin-top: 82px; }
+    .section { max-width: 1160px; margin: auto; padding: 100px 24px; }
+    .section-head { max-width: 670px; margin-bottom: 42px; }
+    .kicker { color: #9a743c; text-transform: uppercase; letter-spacing: .18em; font-size: 10px; font-weight: 800; }
+    h2 { color: var(--navy); font: 500 clamp(34px, 4vw, 48px)/1.12 Georgia, serif; letter-spacing: -.035em; margin: 12px 0 14px; }
+    .section-head p { margin: 0; color: var(--muted); font-size: 15px; max-width: 610px; }
+    .about-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 70px; align-items: center; }
+    .about-art { min-height: 370px; border-radius: var(--radius); background: #eae2d2; padding: 28px; position: relative; overflow: hidden; display: flex; align-items: end; }
+    .about-art::before { content: ""; position: absolute; width: 280px; height: 280px; border-radius: 50%; background: #d8c39e; top: -80px; right: -65px; }
+    .book-illustration { width: 100%; position: relative; z-index: 1; display: flex; align-items: end; justify-content: center; gap: 9px; padding-bottom: 22px; }
+    .book { width: 30%; max-width: 115px; height: 170px; border-radius: 8px 13px 13px 7px; box-shadow: 6px 10px 20px rgba(45,52,52,.13); transform: rotate(-7deg); background: #405b67; position: relative; }
+    .book:nth-child(2) { height: 205px; transform: rotate(2deg); background: var(--navy); }
+    .book:nth-child(3) { height: 155px; transform: rotate(8deg); background: #b98d4d; }
+    .book::after { content: ""; position: absolute; left: 12px; top: 0; height: 100%; width: 2px; background: rgba(255,255,255,.22); }
+    .art-caption { position: absolute; top: 26px; left: 28px; z-index: 2; color: var(--navy); font: italic 24px Georgia, serif; }
+    .about-copy p { color: var(--muted); font-size: 15px; line-height: 1.9; }
+    .detail-list { display: grid; grid-template-columns: 1fr 1fr; gap: 13px 24px; margin-top: 28px; }
+    .detail { border-top: 1px solid var(--line); padding-top: 13px; }
+    .detail small { color: var(--muted); display: block; font-size: 10px; text-transform: uppercase; letter-spacing: .12em; font-weight: 750; margin-bottom: 4px; }
+    .detail strong { color: var(--navy); font-size: 13px; }
+    .dark-band { background: var(--navy); color: var(--white); }
+    .dark-band .section { padding-top: 86px; padding-bottom: 86px; }
+    .dark-band h2 { color: var(--white); }
+    .dark-band .section-head p { color: #c4d0d5; }
+    .journey-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .journey-card { border: 1px solid rgba(255,255,255,.14); border-radius: 18px; padding: 27px; background: rgba(255,255,255,.045); }
+    .journey-card .number { color: var(--gold-pale); font: 500 35px Georgia, serif; margin-bottom: 15px; }
+    .journey-card h3 { margin: 0 0 8px; font-size: 17px; font-weight: 700; }
+    .journey-card p { margin: 0; color: #c4d0d5; font-size: 13px; line-height: 1.8; }
+    .qual-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .qual-card { display: flex; align-items: center; gap: 18px; padding: 25px; background: var(--paper); border: 1px solid var(--line); border-radius: 17px; }
+    .qual-symbol { width: 52px; height: 52px; border-radius: 15px; flex: 0 0 52px; display: grid; place-items: center; background: #f0e8d8; color: #8a6837; font: 600 16px Georgia, serif; }
+    .qual-card h3 { margin: 0 0 4px; color: var(--navy); font-size: 16px; }
+    .qual-card p { margin: 0; color: var(--muted); font-size: 12px; }
+    .philosophy { background: #eee6d7; }
+    .philosophy .section { text-align: center; max-width: 900px; padding-top: 82px; padding-bottom: 82px; }
+    .quote-mark { color: var(--gold); font: 70px/.7 Georgia, serif; }
+    blockquote { margin: 20px auto 14px; color: var(--navy); font: 500 clamp(25px, 3.5vw, 38px)/1.35 Georgia, serif; letter-spacing: -.02em; }
+    .quote-note { color: var(--muted); font-size: 12px; }
+    .classes-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 13px; }
+    .class-card { padding: 24px 12px; text-align: center; border: 1px solid var(--line); border-radius: 16px; background: var(--paper); }
+    .class-card span { color: var(--gold); font: 500 30px Georgia, serif; display: block; margin-bottom: 5px; }
+    .class-card b { color: var(--navy); font-size: 12px; }
+    .school-card { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 35px; display: flex; align-items: center; justify-content: space-between; gap: 25px; box-shadow: 0 10px 30px rgba(23,43,58,.04); }
+    .school-card h3 { margin: 8px 0 5px; color: var(--navy); font: 500 28px Georgia, serif; }
+    .school-card p { margin: 0; color: var(--muted); font-size: 13px; }
+    .school-seal { width: 76px; height: 76px; border: 1px solid var(--gold-pale); border-radius: 50%; display: grid; place-items: center; color: var(--gold); flex: 0 0 76px; }
+    .school-seal svg { width: 31px; height: 31px; }
+    .contact { background: var(--navy); color: var(--white); }
+    .contact .section { padding-top: 78px; padding-bottom: 78px; display: flex; justify-content: space-between; align-items: center; gap: 30px; }
+    .contact h2 { color: var(--white); margin-bottom: 8px; }
+    .contact p { color: #c4d0d5; margin: 0; font-size: 13px; }
+    .contact-note { color: var(--gold-pale); font-size: 12px; border: 1px solid rgba(234,217,185,.4); border-radius: 999px; padding: 12px 17px; white-space: nowrap; }
+    footer { background: #10212d; color: #b4c1c7; padding: 20px 24px; text-align: center; font-size: 11px; }
+    footer strong { color: var(--gold-pale); font-weight: 650; }
+    .back-top { position: fixed; bottom: 20px; right: 20px; width: 42px; height: 42px; border-radius: 50%; border: 0; background: var(--gold-pale); color: var(--navy); box-shadow: var(--shadow); cursor: pointer; display: none; z-index: 10; }
+    .back-top.show { display: grid; place-items: center; }
+    @media (max-width: 850px) {
+      .hero-inner { gap: 35px; grid-template-columns: 1.05fr .95fr; }
+      .experience-tag { right: -8px; }
+      .nav-links { gap: 15px; }
+      .about-grid { gap: 35px; }
+    }
+    @media (max-width: 700px) {
+      .nav-wrap { padding: 12px 18px; }
+      .menu-btn { display: block; }
+      .nav-links { display: none; position: absolute; top: 65px; left: 0; right: 0; background: var(--paper); padding: 18px 24px 22px; border-bottom: 1px solid var(--line); flex-direction: column; align-items: stretch; gap: 15px; box-shadow: var(--shadow); }
+      .nav-links.open { display: flex; }
+      .nav-cta { text-align: center; }
+      .hero { min-height: unset; }
+      .hero-inner { grid-template-columns: 1fr; padding: 65px 22px 80px; text-align: center; gap: 42px; }
+      .hero .eyebrow { justify-content: center; }
+      .hero-copy { margin-left: auto; margin-right: auto; font-size: 15px; }
+      .hero-actions { justify-content: center; }
+      .portrait-wrap { width: min(78%, 300px); }
+      .experience-tag { right: -20px; bottom: 34px; }
+      .stats { margin-top: -28px; padding: 0 16px; }
+      .stats-grid { grid-template-columns: 1fr; }
+      .stat { padding: 17px 20px; }
+      .stat + .stat { border-left: 0; border-top: 1px solid var(--line); }
+      .section { padding: 74px 21px; }
+      .about-grid { grid-template-columns: 1fr; gap: 30px; }
+      .about-art { min-height: 285px; }
+      .book { height: 130px; }
+      .book:nth-child(2) { height: 160px; }
+      .book:nth-child(3) { height: 120px; }
+      .journey-grid, .qual-grid { grid-template-columns: 1fr; }
+      .classes-grid { grid-template-columns: repeat(3, 1fr); }
+      .school-card { padding: 25px; }
+      .school-card h3 { font-size: 23px; }
+      .contact .section { display: block; text-align: center; }
+      .contact-note { display: inline-block; margin-top: 22px; white-space: normal; }
+    }
+    @media (max-width: 390px) {
+      .detail-list { grid-template-columns: 1fr; }
+      .classes-grid { grid-template-columns: repeat(2, 1fr); }
+      .btn { width: 100%; }
+      .experience-tag { right: -12px; padding: 12px 14px; }
+    }
+    @media print {
+      .topbar, .hero-actions, .back-top { display: none !important; }
+      body { background: white; }
+      .hero, .dark-band, .contact { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      .section { padding: 38px 24px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav-wrap" aria-label="Main navigation">
+      <a class="brand" href="#home" aria-label="Anurag Patwa home">
+        <span class="brand-mark">AP</span><span>ANURAG PATWA</span>
+      </a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open navigation" aria-expanded="false">
+        <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#journey">Journey</a>
+        <a href="#qualifications">Qualifications</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#school" class="nav-cta">School Profile</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-inner">
+        <div>
+          <div class="eyebrow">A life dedicated to learning</div>
+          <h1>Mr. Anurag<br><span>Patwa</span></h1>
+          <div class="hero-role">Primary School Educator</div>
+          <p class="hero-copy">Helping young learners take their first steps towards knowledge, confidence and a brighter future — one lesson at a time.</p>
+          <div class="hero-actions">
+            <a class="btn btn-gold" href="#about">Explore my journey <span aria-hidden="true">→</span></a>
+            <button class="btn btn-outline" type="button" id="printBtn">Print this profile <span aria-hidden="true">↗</span></button>
+          </div>
+        </div>
+        <div class="portrait-wrap">
+          <div class="portrait-frame" aria-label="Profile photo placeholder">
+            <div class="monogram">AP</div>
+            <div class="portrait-note"><strong>Mr. Anurag Patwa</strong>Primary School Educator<br/>Profile photograph can be added here</div>
+          </div>
+          <div class="experience-tag"><b>15</b><small>Years of experience · approx.</small></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="stats" aria-label="Professional highlights">
+      <div class="stats-grid">
+        <div class="stat"><span class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 10h1m4 0h1M9 14h1m4 0h1M10 21v-4h4v4"/></svg></span><div><b>Primary Education</b><small>Classes 1 to 5</small></div></div>
+        <div class="stat"><span class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 4 7v5c0 5 3.5 8 8 9 4.5-1 8-4 8-9V7l-8-4Z"/><path d="m8.5 12 2.2 2.2 4.8-5"/></svg></span><div><b>B.Ed. &amp; BTC</b><small>Professional qualifications</small></div></div>
+        <div class="stat"><span class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 20h16M6 20V8l6-4 6 4v12M9 11h6M9 15h6"/></svg></span><div><b>Uttar Pradesh</b><small>Bhagmalpur, Ghazipur</small></div></div>
+      </div>
+    </div>
+
+    <section class="section" id="about">
+      <div class="about-grid">
+        <div class="about-art">
+          <div class="art-caption">Learning opens doors.</div>
+          <div class="book-illustration" aria-hidden="true"><div class="book"></div><div class="book"></div><div class="book"></div></div>
+        </div>
+        <div class="about-copy">
+          <div class="kicker">A little introduction</div>
+          <h2>About the educator</h2>
+          <p>Welcome to my professional profile. I am Mr. Anurag Patwa, a primary school teacher associated with Prathmik Vidyalaya, Bhagmalpur, Ghazipur, Uttar Pradesh.</p>
+          <p>With nearly 15 years of teaching experience, I work with children in the early stages of their learning journey, supporting students from Classes 1 to 5.</p>
+          <div class="detail-list">
+            <div class="detail"><small>Experience</small><strong>Nearly 15 years</strong></div>
+            <div class="detail"><small>Teaching level</small><strong>Primary (Classes 1–5)</strong></div>
+            <div class="detail"><small>Qualifications</small><strong>B.Ed. · BTC</strong></div>
+            <div class="detail"><small>Institution</small><strong>Prathmik Vidyalaya</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="dark-band" id="journey">
+      <div class="section">
+        <div class="section-head">
+          <div class="kicker">Experience &amp; purpose</div>
+          <h2>A journey shaped by teaching</h2>
+          <p>Nearly fifteen years in primary education — contributing to the important first steps of a child's learning journey.</p>
+        </div>
+        <div class="journey-grid">
+          <article class="journey-card"><div class="number">01</div><h3>Nearly 15 years of experience</h3><p>A sustained commitment to the teaching profession and to supporting young learners through their foundational school years.</p></article>
+          <article class="journey-card"><div class="number">02</div><h3>Primary-level education</h3><p>Working with students across Classes 1 to 5, where curiosity, confidence and strong learning foundations begin.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="qualifications">
+      <div class="section-head">
+        <div class="kicker">Professional background</div>
+        <h2>Education &amp; qualifications</h2>
+        <p>Professional qualifications that form part of Mr. Patwa's teaching background.</p>
+      </div>
+      <div class="qual-grid">
+        <article class="qual-card"><div class="qual-symbol">B.Ed.</div><div><h3>Bachelor of Education (B.Ed.)</h3><p>Professional education qualification</p></div></article>
+        <article class="qual-card"><div class="qual-symbol">BTC</div><div><h3>BTC</h3><p>Teaching qualification</p></div></article>
+      </div>
+    </section>
+
+    <section class="philosophy" id="teaching">
+      <div class="section">
+        <div class="quote-mark">“</div>
+        <blockquote>Every child deserves the opportunity to learn, grow and shine.</blockquote>
+        <div class="quote-note">A guiding thought for primary education</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div class="kicker">The early learning years</div>
+        <h2>Teaching across primary classes</h2>
+        <p>Supporting children through the foundational years of school education.</p>
+      </div>
+      <div class="classes-grid">
+        <div class="class-card"><span>01</span><b>Class One</b></div>
+        <div class="class-card"><span>02</span><b>Class Two</b></div>
+        <div class="class-card"><span>03</span><b>Class Three</b></div>
+        <div class="class-card"><span>04</span><b>Class Four</b></div>
+        <div class="class-card"><span>05</span><b>Class Five</b></div>
+      </div>
+    </section>
+
+    <section class="section" id="school" style="padding-top:0">
+      <div class="school-card">
+        <div>
+          <div class="kicker">Current institution</div>
+          <h3>Prathmik Vidyalaya</h3>
+          <p>Bhagmalpur, Ghazipur, Uttar Pradesh, India</p>
+        </div>
+        <div class="school-seal" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5 12 4l9 4.5-9 4.5-9-4.5Z"/><path d="M6 10.2v5.3c3.8 2.7 8.2 2.7 12 0v-5.3M21 9v6"/></svg></div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="section">
+        <div><div class="kicker">Professional profile</div><h2>Thank you for visiting.</h2><p>Celebrating the value of teaching and the people who help young minds grow.</p></div>
+        <div class="contact-note">Contact details can be added when ready</div>
+      </div>
+    </section>
+  </main>
+
+  <footer>Designed with respect and appreciation for <strong>Mr. Anurag Patwa</strong> · <span id="year"></span></footer>
+  <button class="back-top" id="backTop" aria-label="Back to top">↑</button>
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    menuBtn.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', String(isOpen));
+      menuBtn.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
+    });
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      menuBtn.setAttribute('aria-label', 'Open navigation');
+    }));
+    document.getElementById('printBtn').addEventListener('click', () => window.print());
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const backTop = document.getElementById('backTop');
+    window.addEventListener('scroll', () => backTop.classList.toggle('show', window.scrollY > 500));
+    backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  </script>
+</body>
+</html>
